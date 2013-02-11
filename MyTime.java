@@ -14,5 +14,10 @@ public class MyTime{
   }
 
   private void f(){
+	  
+	  DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a z");
+	  Date date = new Date();
+	  System.out.println(dateFormat.format(date));
+	  
   }
 }
