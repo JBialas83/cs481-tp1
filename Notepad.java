@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Notepad extends Thread{
   /*
       Command:
@@ -15,5 +17,15 @@ public class Notepad extends Thread{
   }
 
   private void f() {
+	  
+	  Runtime runtime = Runtime.getRuntime();
+	  try {
+		Process process = runtime.exec("notepad");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
+	 // I don't have Windows. Does this work? 
   }
 }
