@@ -1,4 +1,5 @@
 import java.io.*;
+import java.io.File;
 
 public class Attrib {
   /* Command::
@@ -18,5 +19,18 @@ public class Attrib {
   }
 
   private void f(String name){
+	  
+	  if (name.equalsIgnoreCase(""))
+		  System.out.println("File name not specified");
+	  else
+	  {
+		  File file = new File(name);
+		  if(!file.exists())
+			  System.out.println("File does not exist.");
+		  else if (file.isDirectory())
+			  System.out.println("File specified is a directory.");
+		  else
+			  file.setReadOnly();
+	  }
   }
 }
