@@ -20,6 +20,21 @@ public class Execute {
     f(name);
   }
 
-  private void f(String s){
+  private void f(String name){
+	 
+	  if (name.equalsIgnoreCase(""))
+		  System.out.println("Class name not specified");
+	  else
+	  {
+		  File file = new File(name);
+		  if(!file.exists())
+			  System.out.println("Class does not exist.");
+
+			else
+			{
+				// What here?
+				
+			}
+	  }
    }
 }
