@@ -15,5 +15,9 @@ public class MyDate{
   }
 
   private void f(){
+	  
+	  DateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy");
+	  Date date = new Date();
+	  System.out.println(dateFormat.format(date));
   }
 }
