@@ -26,7 +26,6 @@ public class Notepad extends Thread{
 		e.printStackTrace();
 	}
 	  
-	 // I don't have Windows. Does this work? 
-	 // Yes! It loaded notepad :-)
+	 // I don't have Windows. Does this work?  Yes! It loaded notepad :-)
   }
 }
