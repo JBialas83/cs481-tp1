@@ -37,7 +37,7 @@ public class Dir {
 	  else if (!dir.isDirectory() && dir.isFile())
 		  System.out.println(name + " is a file, not a directory");
 	  else{
-                  dirList = dir.listFiles(); // Doesn't actually list files?
+                  dirList = dir.listFiles(); // Doesn't actually list files? Does now :-)
                   	for(File path : dirList){ //Fixed to list files
 			System.out.println(path);
 }
