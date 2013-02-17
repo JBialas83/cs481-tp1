@@ -21,6 +21,7 @@ public class Dir {
 
   private void f(String name){
 	  File dir;
+	  File[] dirList;
 	  
 	  if (name.equalsIgnoreCase("") || name.equalsIgnoreCase("."))
 		  {
@@ -35,7 +36,11 @@ public class Dir {
 		  System.out.println("Directory does not exist.");
 	  else if (!dir.isDirectory() && dir.isFile())
 		  System.out.println(name + " is a file, not a directory");
-	  else
-		  dir.listFiles(); // Doesn't actually list files?
-  }
+	  else{
+                  dirList = dir.listFiles(); // Doesn't actually list files?
+                  	for(File path : dirList){ //Fixed to list files
+			System.out.println(path);
+}
+}
+}
 }
