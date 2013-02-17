@@ -27,5 +27,6 @@ public class Notepad extends Thread{
 	}
 	  
 	 // I don't have Windows. Does this work? 
+	 // Yes! It loaded notepad :-)
   }
 }
