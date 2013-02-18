@@ -19,23 +19,43 @@ public class Dir {
     f(name);
   }
 
-  private void f(String name){
-	  File dir;
-	  
-	  if (name.equalsIgnoreCase("") || name.equalsIgnoreCase("."))
-		  {
-		  	dir = new File(".");
-		  	String s_dir = dir.getAbsolutePath();
-			dir = new File(s_dir);
-		  }
-	  else 
-		  dir = new File(name);
-	  
-	  if (!dir.exists())
-		  System.out.println("Directory does not exist.");
-	  else if (!dir.isDirectory() && dir.isFile())
-		  System.out.println(name + " is a file, not a directory");
+  private void f(String path){
+
+	  String files;
+	  File folder;
+	  if (path.equalsIgnoreCase("") || path.equalsIgnoreCase("."))
+	  {
+	  	folder = new File(".");
+	  	String s_dir = folder.getAbsolutePath();
+		folder = new File(s_dir);
+	  }
 	  else
-		  dir.listFiles(); // Doesn't actually list files?
+		  folder=new File(path);
+	
+	  File[] listOfFiles = folder.listFiles(); 
+	  
+	  if (!folder.exists())
+		  System.out.println("Directory does not exist.");
+	  else if (!folder.isDirectory() && folder.isFile())
+		  System.out.println(path + " is a file, not a directory");
+	  else
+	  {
+	  
+	  for (int i = 0; i < listOfFiles.length; i++) 
+	  {
+		  
+	   if (listOfFiles[i].isDirectory()) 
+		   {
+		   files = listOfFiles[i].getName() + " (Directory)";
+		   System.out.println(files);
+		      }
+	   else if(listOfFiles[i].isFile()) 
+	   {
+	   files = listOfFiles[i].getName();
+	   System.out.println(files);
+	      }
+	  }
+	  }
+		   
   }
 }
