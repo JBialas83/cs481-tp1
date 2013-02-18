@@ -31,7 +31,6 @@ public class Rmdir {
 		  else if(dir.isFile())
 			  System.out.println(name + " is a file, not a directory.");
 		  //else if dir isn't empty...
-		 
 		  else
 			  dir.delete();
 	  }
