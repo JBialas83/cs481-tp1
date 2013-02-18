@@ -19,5 +19,15 @@ public class Rename {
   }
 
   private void f(String name) {
+	 
+	  new Copy(name);
+	  
+
+	  StringTokenizer tok = new StringTokenizer(name);
+	  String src = "";
+	  src = tok.nextElement().toString();
+	  new Delete(src);
+	  
+	  
   }
 }
