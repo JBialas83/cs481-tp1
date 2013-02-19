@@ -25,7 +25,5 @@ public class Notepad extends Thread{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	  
-	 // I don't have Windows. Does this work?  Yes! It loaded notepad :-)
   }
 }

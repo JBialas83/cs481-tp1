@@ -32,9 +32,31 @@ public class Execute {
 
 			else
 			{
-				// What here?
+				Process thisProcess = null;			
+				String[] cmd = {"java", name};
+				
+				try{
+					thisProcess = Runtime.getRuntime().exec(cmd);
+				}
+				catch(IOException e)
+				{
+					System.err.println("Error on exec()");
+					e.printStackTrace();
+				}
+				
+				try{
+					// Can't get output?
+					PrintWriter output = new PrintWriter(thisProcess.getOutputStream());
+					output.println();
+				}
+				catch(Exception e)
+				{
+					System.err.println("Error on inStream.readLine()");
+					e.printStackTrace();
+				}
 				
 			}
+		  
 	  }
    }
 }

@@ -1,4 +1,9 @@
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.StringTokenizer;
 
 public class Copy {
@@ -22,5 +27,59 @@ public class Copy {
   }
 
   private void f(String name) {
+	  
+	  String src = "";
+	  String dst = "";
+	  
+	  StringTokenizer tok = new StringTokenizer(name);
+	  src = tok.nextElement().toString();
+	  
+	  if (tok.hasMoreElements())
+		  dst = tok.nextElement().toString();
+			  
+	  if (src.isEmpty() && dst.isEmpty())
+		  System.out.println("No file names entered.");
+	  else if (src.isEmpty())
+		  System.out.println("No second file name entered.");
+	  else
+	  {
+	  
+	  File srcFile = new File(src);
+	  File dstFile = new File(dst);
+	  
+	  if (!srcFile.exists())
+		  System.out.println("File " + src + " does not exist.");
+	  else if (dstFile.exists())
+		  System.out.println("File " + dst + " already exists.");
+	  else if (srcFile.isDirectory())
+		  System.out.println(name + " is a directory, not a file.");
+	  
+	  else
+	  {  
+		  InputStream inStream;
+		  OutputStream outStream;
+		  
+		  try 
+		  {
+			  inStream = new FileInputStream(srcFile);
+			  outStream = new FileOutputStream(dstFile);
+			
+			  byte[] buffer = new byte[1024];
+		  
+			  int length;
+			  while((length = inStream.read(buffer)) > 0)
+			  {
+				  outStream.write(buffer, 0, length);
+			  }
+			
+			  inStream.close();
+			  outStream.close();
+		  
+		  } catch (IOException e) {
+		}
+	  }
+	}
   }
 }
+
+
