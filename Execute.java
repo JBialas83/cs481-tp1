@@ -32,11 +32,11 @@ public class Execute {
 
 			else
 			{
-				Process thisProcess = null;
-				BufferedReader inStream = null;
+				Process thisProcess = null;			
+				String[] cmd = {"java", name};
 				
 				try{
-					thisProcess = Runtime.getRuntime().exec("java " +name);
+					thisProcess = Runtime.getRuntime().exec(cmd);
 				}
 				catch(IOException e)
 				{
@@ -45,14 +45,16 @@ public class Execute {
 				}
 				
 				try{
-					inStream = new BufferedReader(new InputStreamReader(thisProcess.getInputStream()));
-					System.out.println(inStream.readLine());
+					// Can't get output?
+					PrintWriter output = new PrintWriter(thisProcess.getOutputStream());
+					output.println();
 				}
-				catch(IOException e)
+				catch(Exception e)
 				{
 					System.err.println("Error on inStream.readLine()");
 					e.printStackTrace();
 				}
+				
 			}
 		  
 	  }
